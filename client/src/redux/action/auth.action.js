@@ -1,5 +1,5 @@
 import { messageConstants, userConstants } from "../../constants";
-import { authService } from "../../services";
+import { authService } from "services";
 
 export const login = (dataToSubmit) => (dispatch) => {
   return authService.login(dataToSubmit).then(

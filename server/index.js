@@ -9,7 +9,7 @@ const dbConfig = require("./config/dbSecretKeys").mongoURI;
 const app = express();
 
 var corsOptions = {
-  origin: "http://localhost:8081",
+  origin: "http://localhost:3000",
 };
 
 app.use(cors(corsOptions));
@@ -54,6 +54,10 @@ http.createServer(app).listen(PORT, () => {
 
   require("./routes/auth.routes")(app);
   require("./routes/user.routes")(app);
+
+  require("./routes/tutorial.routes")(app);
+
+  app.use("/posts", require("./routes/posts.routes"));
 });
 
 function initial() {
